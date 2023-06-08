@@ -1,3 +1,4 @@
+import { Button } from "@components/Button";
 import { Container } from "./styles";
 import { Input } from "@components/Input";
 
@@ -14,6 +15,9 @@ export function SignIn() {
         placeholder="Senha"
         type="secondary"
         secureTextEntry
+      />
+      <Button 
+        title="Entrar"
       />
     </Container>
   )
