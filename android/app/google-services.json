@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "47657849224",
+    "project_id": "ignitegopizza-49f39",
+    "storage_bucket": "ignitegopizza-49f39.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47657849224:android:148d6225c0050dd86fea3d",
+        "android_client_info": {
+          "package_name": "com.gopizza"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "47657849224-iiuq0vndm3kpqdl2crs82l1e14eim8mf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAF8sjh1CS47U7sie_fO01gPhiLA91ArDA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "47657849224-iiuq0vndm3kpqdl2crs82l1e14eim8mf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
