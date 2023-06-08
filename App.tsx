@@ -1,8 +1,12 @@
 import { StatusBar } from 'react-native';
+
 import { useFonts, DMSans_400Regular } from '@expo-google-fonts/dm-sans';
 import { DMSerifDisplay_400Regular } from '@expo-google-fonts/dm-serif-display';
+
+import { AuthProvider } from '@hooks/auth'
 import { ThemeProvider } from 'styled-components/native';
 import theme from '@theme/index';
+
 import { SignIn } from '@screens/SignIn';
 
 export default function App() {
@@ -22,7 +26,9 @@ export default function App() {
         backgroundColor='transparent'
         translucent
       />
-      <SignIn />
+      <AuthProvider>
+        <SignIn />
+      </AuthProvider>
     </ThemeProvider>
   );
 }
