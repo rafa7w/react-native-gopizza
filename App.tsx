@@ -1,4 +1,4 @@
-import { View } from 'react-native';
+import { StatusBar } from 'react-native';
 import { useFonts, DMSans_400Regular } from '@expo-google-fonts/dm-sans';
 import { DMSerifDisplay_400Regular } from '@expo-google-fonts/dm-serif-display';
 import { ThemeProvider } from 'styled-components/native';
@@ -17,6 +17,11 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <StatusBar 
+        barStyle='light-content'
+        backgroundColor='transparent'
+        translucent
+      />
       <SignIn />
     </ThemeProvider>
   );
