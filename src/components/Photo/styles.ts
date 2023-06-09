@@ -15,7 +15,7 @@ export const Placeholder = styled.View`
   border: 1px dashed ${({theme}) => theme.COLORS.SECONDARY_900};
 `
 
-export const PlaceholderTitle = styled.View`
+export const PlaceholderTitle = styled.Text`
   font-size: 14px;
   text-align: center;
 
