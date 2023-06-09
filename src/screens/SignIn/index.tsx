@@ -16,10 +16,14 @@ import { useAuth } from '@hooks/auth';
 export function SignIn() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const { signIn, isLogging } = useAuth()
+  const { signIn, isLogging, forgotPassword } = useAuth()
 
   function handleSignIn() {
     signIn(email, password)
+  }
+
+  function handleForgotPassword() {
+    forgotPassword(email)
   }
 
   return (
@@ -46,7 +50,7 @@ export function SignIn() {
             secureTextEntry
             onChangeText={setPassword}
           />
-          <ForgotPasswordButton>
+          <ForgotPasswordButton onPress={handleForgotPassword}>
             <ForgotPasswordLabel>Esqueci minha senha</ForgotPasswordLabel>
           </ForgotPasswordButton>
           <Button 
