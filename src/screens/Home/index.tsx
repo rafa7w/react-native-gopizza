@@ -12,6 +12,7 @@ import {
 } from "./styles";
 
 import { Search } from '@components/Search';
+import { ProductCard } from '@components/ProductCard';
 
 import { TouchableOpacity } from "react-native";
 import { useTheme } from 'styled-components/native';
@@ -49,6 +50,10 @@ export function Home() {
         <Title>Cardápio</Title>
         <MenuItemsNumber>10 pizzas</MenuItemsNumber>
       </MenuHeader>
+
+      <ProductCard 
+        data={{id: '1', name: 'Pizza', description: 'Ingredientes dessa pizza', photo_url: 'https://github.com/rafa7w.png'}}
+      />
     </Container>
   )
 }
