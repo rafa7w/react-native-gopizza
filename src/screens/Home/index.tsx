@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState, useCallback } from 'react';
 import { TouchableOpacity, Alert, FlatList } from "react-native";
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import happyEmoji from '@assets/happy.png';
 import { 
   Container,
@@ -68,9 +68,9 @@ export function Home() {
     navigation.navigate('product', {})
   }
 
-  useEffect(() => {
+  useFocusEffect(useCallback(() => {
     fetchPizzas('') // traz tudo 
-  }, [])
+  }, []))
 
   return (
     <Container>
