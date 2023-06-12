@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { TouchableOpacity, Alert, FlatList } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 import happyEmoji from '@assets/happy.png';
 import { 
   Container,
@@ -23,6 +24,7 @@ import {MaterialIcons} from '@expo/vector-icons';
 
 export function Home() {
   const { COLORS } = useTheme()
+  const navigation = useNavigation()
 
   const [pizzas, setPizzas] = useState<ProductProps[]>([])
   const [search, setSearch] = useState('')
@@ -56,6 +58,10 @@ export function Home() {
   function handleSearchClear() {
     setSearch('')
     fetchPizzas('')
+  }
+
+  function handleOpen(id: string) {
+    navigation.navigate('product', {id})
   }
 
   useEffect(() => {
@@ -100,6 +106,7 @@ export function Home() {
         renderItem={({item}) => (
           <ProductCard 
             data={item}
+            onPress={() => handleOpen(item.id)}
           />
         )}
         showsVerticalScrollIndicator={false}
