@@ -8,6 +8,8 @@ import {
 
 } from "./styles";
 
+import { Search } from '@components/Search';
+
 import { TouchableOpacity } from "react-native";
 import { useTheme } from 'styled-components/native';
 import {MaterialIcons} from '@expo/vector-icons';
@@ -34,6 +36,11 @@ export function Home() {
         </TouchableOpacity>
 
       </Header>
+
+      <Search 
+        onSearch={() => {}}
+        onClear={() => {}}
+      />
     </Container>
   )
 }
