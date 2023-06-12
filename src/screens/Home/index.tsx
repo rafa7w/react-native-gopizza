@@ -10,8 +10,8 @@ import {
   GreetingText,
   Title,
   MenuHeader,
-  MenuItemsNumber
-
+  MenuItemsNumber,
+  NewProductButton
 } from "./styles";
 
 import { Search } from '@components/Search';
@@ -62,6 +62,10 @@ export function Home() {
 
   function handleOpen(id: string) {
     navigation.navigate('product', {id})
+  }
+
+  function handleAdd() {
+    navigation.navigate('product', {})
   }
 
   useEffect(() => {
@@ -115,6 +119,12 @@ export function Home() {
           paddingBottom: 125,
           marginHorizontal: 24,
         }}
+      />
+
+      <NewProductButton
+        title='Cadastrar Pizza'
+        type='secondary'
+        onPress={handleAdd}
       />
     </Container>
   )
