@@ -14,7 +14,7 @@ export function Search({onSearch, onClear, ...rest}: Props) {
     <Container>
       <InputArea>
         <Input 
-          placeholder='pesquisar' 
+          placeholder='pesquisar...' 
           {...rest}
         />
 

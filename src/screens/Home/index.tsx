@@ -25,6 +25,7 @@ export function Home() {
   const { COLORS } = useTheme()
 
   const [pizzas, setPizzas] = useState<ProductProps[]>([])
+  const [search, setSearch] = useState('')
 
   function fetchPizzas(value: string) {
     const formattedValue = value.toLocaleLowerCase().trim()
@@ -46,6 +47,15 @@ export function Home() {
       setPizzas(data)
     }) 
     .catch(() => Alert.alert('Consulta', 'Não foi possível realizar a consulta.'))
+  }
+
+  function handleSearch() {
+    fetchPizzas(search)
+  }
+
+  function handleSearchClear() {
+    setSearch('')
+    fetchPizzas('')
   }
 
   useEffect(() => {
@@ -73,8 +83,10 @@ export function Home() {
       </Header>
 
       <Search 
-        onSearch={() => {}}
-        onClear={() => {}}
+        onChangeText={setSearch}
+        value={search}
+        onSearch={handleSearch}
+        onClear={handleSearchClear}
       />
 
       <MenuHeader>
