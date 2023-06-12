@@ -7,7 +7,7 @@ import { AuthProvider } from '@hooks/auth'
 import { ThemeProvider } from 'styled-components/native';
 import theme from '@theme/index';
 
-import { Home } from '@screens/Home';
+import { Routes } from '@routes/index';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -27,7 +27,7 @@ export default function App() {
         translucent
       />
       <AuthProvider>
-        <Home />
+        <Routes />
       </AuthProvider>
     </ThemeProvider>
   );
