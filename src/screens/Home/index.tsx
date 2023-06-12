@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { Alert } from 'react-native';
+import { useEffect, useState } from 'react';
+import { TouchableOpacity, Alert, FlatList } from "react-native";
 import happyEmoji from '@assets/happy.png';
 import { 
   Container,
@@ -18,12 +18,13 @@ import { ProductCard, ProductProps } from '@components/ProductCard';
 
 import firestore from '@react-native-firebase/firestore';
 
-import { TouchableOpacity } from "react-native";
 import { useTheme } from 'styled-components/native';
 import {MaterialIcons} from '@expo/vector-icons';
 
 export function Home() {
   const { COLORS } = useTheme()
+
+  const [pizzas, setPizzas] = useState<ProductProps[]>([])
 
   function fetchPizzas(value: string) {
     const formattedValue = value.toLocaleLowerCase().trim()
@@ -41,6 +42,8 @@ export function Home() {
           ...doc.data(),
         }
       }) as ProductProps[]
+
+      setPizzas(data)
     }) 
     .catch(() => Alert.alert('Consulta', 'Não foi possível realizar a consulta.'))
   }
@@ -79,8 +82,20 @@ export function Home() {
         <MenuItemsNumber>10 pizzas</MenuItemsNumber>
       </MenuHeader>
 
-      <ProductCard 
-        data={{id: '1', name: 'Pizza', description: 'Ingredientes dessa pizza', photo_url: 'https://github.com/rafa7w.png'}}
+      <FlatList 
+        data={pizzas}
+        keyExtractor={item => item.id}
+        renderItem={({item}) => (
+          <ProductCard 
+            data={item}
+          />
+        )}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingTop: 20,
+          paddingBottom: 125,
+          marginHorizontal: 24,
+        }}
       />
     </Container>
   )
